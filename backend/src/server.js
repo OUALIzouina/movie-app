@@ -15,6 +15,7 @@ const app = express();
 
 const allowedOrigins = [
   "http://localhost:5173",
+  "https://movie-app-two-delta-97.vercel.app/"
 ];
 
 app.use(

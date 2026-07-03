@@ -2,11 +2,7 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { useAuth } from '../context/AuthContext.jsx'
 
-/**
- * A ticket-stub styled movie card. `inWatchlist` + `onToggleWatchlist` are
- * optional — pass them from a parent that knows the user's watchlist state
- * (Home.jsx does this) so the button can show Add / Remove correctly.
- */
+
 export default function MovieCard({ movie, inWatchlist = false, onToggleWatchlist }) {
   const { isAuthenticated } = useAuth()
   const [busy, setBusy] = useState(false)
