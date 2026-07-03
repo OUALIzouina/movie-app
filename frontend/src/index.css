@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-marquee-bg text-ink font-body antialiased;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.035) 1px, transparent 0);
+    background-size: 3px 3px;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+
+  /* Visible keyboard focus everywhere */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid #D4A24C;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Signature element: a ticket-stub card with a perforated tear-edge */
+  .ticket-card {
+    position: relative;
+    background: #131826;
+    border: 1px solid #232A3D;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .ticket-perf {
+    position: relative;
+    height: 1px;
+    margin: 0 14px;
+    background-image: repeating-linear-gradient(
+      to right,
+      #232A3D 0,
+      #232A3D 6px,
+      transparent 6px,
+      transparent 12px
+    );
+  }
+
+  .ticket-perf::before,
+  .ticket-perf::after {
+    content: '';
+    position: absolute;
+    top: -7px;
+    width: 14px;
+    height: 14px;
+    background: #0A0D16;
+    border-radius: 50%;
+  }
+
+  .ticket-perf::before {
+    left: -21px;
+  }
+
+  .ticket-perf::after {
+    right: -21px;
+  }
+
+  .stat-mono {
+    @apply font-mono text-xs tracking-widest uppercase text-ink-muted;
+  }
+}
